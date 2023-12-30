@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class eqiupScript : MonoBehaviour
 {
     public Transform PlayerTransform;
@@ -32,14 +31,14 @@ public class eqiupScript : MonoBehaviour
                 EquipObject();
                 Shoot();
             }
-            isEquipped = !isEquipped; 
+            isEquipped = !isEquipped;
         }
     }
 
-    void Shoot ()
+    void Shoot()
     {
         RaycastHit hit;
-        if (Physics.Raycast(camera.transform.position, camera.transform.forward, out hit, range))
+        if (Physics.Raycast(camera.transform.position, camera.transform.localPosition, out hit, range))
         {
             Debug.Log(hit.transform.name);
 
@@ -53,16 +52,15 @@ public class eqiupScript : MonoBehaviour
 
     void UnequipObject()
     {
-        PlayerTransform.DetachChildren();
-        Gun.transform.eulerAngles = new Vector3(Gun.transform.eulerAngles.x, Gun.transform.eulerAngles.y, Gun.transform.eulerAngles.z - 45);
+        Gun.transform.SetParent(null);
         Gun.GetComponent<Rigidbody>().isKinematic = false;
     }
 
     void EquipObject()
     {
         Gun.GetComponent<Rigidbody>().isKinematic = true;
-        Gun.transform.position = PlayerTransform.transform.position;
-        Gun.transform.rotation = PlayerTransform.transform.rotation;
         Gun.transform.SetParent(PlayerTransform);
+        Gun.transform.localPosition = Vector3.zero;
+        Gun.transform.localRotation = Quaternion.identity;
     }
 }
