@@ -33,6 +33,12 @@ public class EquipScript : MonoBehaviour
             }
             isEquipped = !isEquipped;
         }
+       
+        if (isEquipped)
+        {
+            Gun.transform.localPosition = Vector3.zero;
+            Gun.transform.localRotation = Quaternion.identity;
+        }
     }
 
     void Shoot()
@@ -55,12 +61,14 @@ public class EquipScript : MonoBehaviour
         Debug.Log("Unequipping object");
         Gun.transform.SetParent(null);
         Gun.GetComponent<Rigidbody>().isKinematic = false;
+        Gun.GetComponent<BoxCollider>().enabled = true;
     }
 
     void EquipObject()
     {
         Debug.Log("Equipping object");
         Gun.GetComponent<Rigidbody>().isKinematic = true;
+        Gun.GetComponent<BoxCollider>().enabled = false;
         Gun.transform.SetParent(playerTransform);
         Gun.transform.localPosition = new Vector3(0f, 0f, 0f); // Set local position to (0, 0, 0)
         Gun.transform.localPosition = Vector3.zero;
