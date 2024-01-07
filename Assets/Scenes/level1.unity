@@ -741,11 +741,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2604a4f93814adf47a7fa44dae92b159, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerTransform: {fileID: 667971031}
+  playerTransform: {fileID: 667971031}
   Gun: {fileID: 413205790}
-  camera: {fileID: 539871785}
+  playerCamera: {fileID: 539871785}
   range: 2
-  open: 100
 --- !u!1001 &1322808985
 PrefabInstance:
   m_ObjectHideFlags: 0
