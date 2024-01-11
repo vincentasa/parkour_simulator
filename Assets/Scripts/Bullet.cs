@@ -6,7 +6,7 @@ public class Bullet : MonoBehaviour
 {
     public float speed;
 
-    private void Start()
+    void Start()
     {
         Destroy(gameObject, 2f);
     }
@@ -18,7 +18,7 @@ public class Bullet : MonoBehaviour
     }
 
 
-    private void OnCollisionEnter(Collision other)
+    void OnCollisionEnter(Collision other)
     {
         Destroy(gameObject);
         if (other.gameObject.tag == "Destroy")
