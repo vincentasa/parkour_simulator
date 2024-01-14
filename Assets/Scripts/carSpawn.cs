@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class SpawnAndMove: MonoBehaviour
+public class carSpawn: MonoBehaviour
 {
     public GameObject objectToSpawn; // Assign your prefab in the Inspector
     public GameObject targetObject; // Assign your target GameObject in the Inspector
