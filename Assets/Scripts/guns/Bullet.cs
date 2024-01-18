@@ -21,10 +21,9 @@ public class Bullet : MonoBehaviour
     void OnCollisionEnter(Collision other)
     {
         Destroy(gameObject);
-        if (other.gameObject.tag == "Destroy")
+        if (other.gameObject.tag == "Enemy")
         {
-            //Destroy(other.gameObject);
-            //other.gameObject.GetComponent<Health>().Damage();
+            other.gameObject.GetComponent<Health>().Damage();
         }
     }
 
