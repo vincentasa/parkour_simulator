@@ -20,7 +20,8 @@ public class Bullet : MonoBehaviour
 
     void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.tag == "Enemy")
+        print(":))");
+        if (other.gameObject.tag == "Enemy0")
         {
             other.gameObject.GetComponent<Health>().Damage();
         }

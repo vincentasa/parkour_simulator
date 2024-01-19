@@ -6,7 +6,6 @@ public class Target : MonoBehaviour
 {
     public float drop;
 
-
     public void Commence (float amount) 
     {
         drop -= amount;
