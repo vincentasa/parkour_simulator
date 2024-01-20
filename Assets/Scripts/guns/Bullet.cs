@@ -1,4 +1,4 @@
- using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,7 +6,7 @@ public class Bullet : MonoBehaviour
 {
     public float speed;
 
-    void Start()
+    private void Start()
     {
         Destroy(gameObject, 2f);
     }
@@ -17,14 +17,13 @@ public class Bullet : MonoBehaviour
         transform.position += transform.forward * speed * Time.deltaTime;
     }
 
-
-    void OnCollisionEnter(Collision other)
+    public void OnCollisionEnter(Collision other)
     {
-        print(":))");
-        if (other.gameObject.tag == "Enemy0")
+        if (other.gameObject.CompareTag("Enemy"))
         {
             other.gameObject.GetComponent<Health>().Damage();
         }
+        Destroy(gameObject);
     }
 
 }

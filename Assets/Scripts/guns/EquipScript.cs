@@ -42,7 +42,7 @@ public class EquipScript : MonoBehaviour
             }
             isEquipped = !isEquipped;
         }
-       
+
         if (isEquipped)
         {
             Gun.transform.localPosition = Vector3.zero;
@@ -72,7 +72,7 @@ public class EquipScript : MonoBehaviour
         Gun.transform.SetParent(null);
         Gun.GetComponent<Rigidbody>().isKinematic = false;
         Gun.GetComponent<BoxCollider>().enabled = true;
- 
+
     }
 
     void EquipObject()
@@ -84,6 +84,6 @@ public class EquipScript : MonoBehaviour
         Gun.transform.SetParent(playerTransform);
         Gun.transform.localPosition = new Vector3(0f, 0f, 0f); // Set local position to (0, 0, 0)
         Gun.transform.localPosition = Vector3.zero;
-        Gun.transform.localEulerAngles = new Vector3(270,0,0);
+        Gun.transform.localEulerAngles = new Vector3(270, 0, 0);
     }
 }

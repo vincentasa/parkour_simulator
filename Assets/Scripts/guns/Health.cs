@@ -10,19 +10,27 @@ public class Health : MonoBehaviour
 
     public void Damage()
     {
-        print(":))))))))))");
         hp--;
-        if (hp <= 0) Die();
+        Debug.Log("Health: " + hp);
+
+        if (hp <= 0)
+        {
+            Debug.Log("Dying...");
+            Die();
+        }
     }
 
     public void Die()
     {
-        print(":)");
-        Destroy(gameObject);
+        Debug.Log("Die method called.");
+
         for (int i = 0; i < particleCount; i++)
         {
             var offset = Vector3.up + Random.insideUnitSphere * 2;
             Instantiate(particle, transform.position + offset, transform.rotation);
         }
+
+        Debug.Log("Destroying gameObject.");
+        Destroy(gameObject);
     }
 }
