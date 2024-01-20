@@ -8,10 +8,9 @@ public class EquipScript : MonoBehaviour
     public GameObject Gun;
     public Camera playerCamera;
     public float range;
-    public GunShoot gunshoot;
+    private GunShoot gunshoot;
     public KeyCode shootKey;
     private bool isEquipped;
-    //public AudioSource source;
 
     // Start is called before the first frame update
     void Start()
@@ -26,7 +25,6 @@ public class EquipScript : MonoBehaviour
         if (Input.GetKeyDown(shootKey) && gunshoot != null)
         {
             gunshoot.Shoot();
-            //source.Play();
         }
 
         if (Input.GetKeyDown(KeyCode.F))

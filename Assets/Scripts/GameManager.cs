@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
         if(other.gameObject.tag == ("Ground")) 
         {
             SceneManager.LoadScene("main_menu");
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
         }
     }
 }
