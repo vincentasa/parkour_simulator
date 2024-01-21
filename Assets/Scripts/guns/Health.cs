@@ -5,32 +5,24 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     public GameObject particle;
-    public int particleCount;
-    public int hp;
+    public int particleCount; 
+    public int hp; 
 
     public void Damage()
     {
+        Debug.Log("Object has taken damage");
         hp--;
-        Debug.Log("Health: " + hp);
-
-        if (hp <= 0)
-        {
-            Debug.Log("Dying...");
-            Die();
-        }
+        if (hp <= 0) Die();
     }
 
     public void Die()
     {
-        Debug.Log("Die method called.");
-
+        Debug.Log("Object has died");
         for (int i = 0; i < particleCount; i++)
         {
             var offset = Vector3.up + Random.insideUnitSphere * 2;
             Instantiate(particle, transform.position + offset, transform.rotation);
         }
-
-        Debug.Log("Destroying gameObject.");
         Destroy(gameObject);
     }
 }
